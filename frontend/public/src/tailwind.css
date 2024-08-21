@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body,
+  .page-wrapper {
+    @apply min-h-screen font-body text-lg leading-[1.66] text-ColorBlack/80;
+  }
+
+  /* Default Heading */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-PlusJakartaSans font-extrabold leading-[1.05] -tracking-[2px] text-ColorBlack;
+  }
+
+  h1 {
+    @apply text-[46px] md:text-5xl lg:text-[68px] xl:text-[80px] xxl:text-[100px];
+  }
+
+  h2 {
+    @apply text-3xl leading-[1.26] tracking-normal md:text-4xl lg:leading-[1.26] xl:text-[46px];
+  }
+
+  h4 {
+    @apply text-3xl leading-[1.33] tracking-normal;
+  }
+
+  h5 {
+    @apply text-2xl leading-[1.25] tracking-normal;
+  }
+  h6 {
+    @apply text-xl leading-[1.4]  tracking-normal;
+  }
+
+  a,
+  button {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  p {
+    @apply mb-8 last:mb-0;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply relative border-2 px-8 py-3 text-center text-base font-semibold leading-[1.5] transition-all duration-[400ms] ease-in-out;
+  }
+
+  .is-large {
+    @apply xl:px-10 xl:py-4;
+  }
+
+  .btn-animation {
+    @apply overflow-hidden before:absolute before:-left-[10%] before:-top-[110%] before:h-0 before:w-[120%] before:rounded-[50%] before:bg-white before:pb-[120%] before:[transform:translate3d(0,_68%,_0)_scale3d(0,_0,_0)]  after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-white after:[transform:translate3d(0,_-100%,_0)] after:[transition:transform_0.4s_cubic-bezier(0.1,_0,_0.3,_1)] hover:bg-ColorBlack hover:before:[transform:translate3d(0,_0,_0)_scale3d(1,_1,_1)] hover:before:[transition:transform_0.4s_cubic-bezier(0.1,_0,_0.3,_1)] hover:after:transition-all hover:after:delay-[400ms] hover:after:duration-[500ms] hover:after:ease-linear hover:after:[transform:translate3d(0,_0,_0)];
+  }
+
+  .is-transparent {
+    @apply before:bg-transparent after:bg-transparent;
+  }
+
+  .btn-animation span {
+    @apply relative z-10 block;
+  }
+  .btn-animation:hover span {
+    @apply animate-[fill-up-initial_0.3s_forwards,_fill-up-end_0.3s_forwards_0.3s];
+  }
+
+  .btn-text {
+    @apply text-base font-bold  transition-all duration-[400ms] ease-in-out;
+  }
+
+  .is-blue {
+    @apply border-ColorBlue bg-ColorBlue text-white hover:bg-transparent hover:text-ColorBlue;
+  }
+
+  .is-purple {
+    @apply border-ColorPurple bg-ColorPurple text-white hover:bg-transparent hover:text-ColorPurple;
+  }
+
+  .is-black {
+    @apply border-ColorBlack bg-ColorBlack text-white hover:bg-transparent hover:text-ColorBlack;
+  }
+
+  .is-yellow {
+    @apply border-ColorBlack bg-ColorYellow text-ColorBlack;
+  }
+
+  .is-violet {
+    @apply border-black bg-ColorViolet text-white;
+  }
+
+  .is-atomic-tangerine {
+    @apply border-ColorAtomicTangerine bg-ColorAtomicTangerine text-black hover:bg-white;
+  }
+
+  .is-lime {
+    @apply border-ColorLime bg-ColorLime text-black hover:border-ColorBlack hover:bg-white;
+  }
+
+  .is-lunar-green {
+    @apply border-ColorLunarGreen bg-ColorLunarGreen text-ColorCorn hover:border-ColorBlack hover:bg-ColorCorn hover:text-ColorLunarGreen;
+  }
+  .is-denim {
+    @apply border-ColorDenimDarkBlue bg-ColorDenimDarkBlue text-ColorPaleGold hover:border-ColorDenimDarkBlue hover:bg-transparent hover:text-ColorDenimDarkBlue;
+  }
+  .is-pale-gold {
+    @apply border-ColorPaleGold bg-ColorPaleGold text-ColorDenimDarkBlue hover:border-ColorPaleGold hover:bg-transparent hover:text-ColorPaleGold;
+  }
+  .is-caribbean-green{
+    @apply border-ColorCaribbeanGreen bg-ColorCaribbeanGreen text-ColorMidnightMoss hover:bg-transparent hover:border-ColorCaribbeanGreen hover:text-ColorCaribbeanGreen ;
+  }
+  .is-honey-suckle{
+    @apply border-ColorHoneySuckle bg-ColorHoneySuckle hover:bg-transparent text-[#2B13B9] hover:text-ColorHoneySuckle;
+  }
+  .is-honey-suckle-2{
+    @apply border-ColorHoneySuckle bg-ColorHoneySuckle hover:bg-transparent text-[#2B13B9] hover:text-ColorHoneySuckle hover:bg-[#2B13B9] hover:border-[#2B13B9];
+  }
+
+  .is-outline-white {
+    @apply border-white bg-transparent text-white hover:bg-white hover:text-ColorBlack;
+  }
+  .is-outline-black {
+    @apply border-ColorBlack bg-transparent text-ColorBlack hover:bg-ColorBlack hover:text-ColorBlack;
+  }
+  .is-outline-denim {
+    @apply border-ColorDenimDarkBlue bg-transparent text-ColorDenimDarkBlue hover:bg-ColorDenimDarkBlue hover:text-ColorPaleGold;
+  }
+  .is-outline-palegold {
+    @apply border-ColorPaleGold bg-transparent text-ColorPaleGold before:bg-ColorPaleGold after:bg-ColorPaleGold hover:bg-ColorPaleGold hover:text-ColorDenimDarkBlue;
+  }
+  .is-outline-midnight-moss {
+    @apply border-ColorMidnightMoss bg-transparent text-ColorMidnightMoss before:bg-ColorMidnightMoss after:bg-ColorMidnightMoss hover:bg-ColorMidnightMoss hover:text-white;
+  }
+
+  .tab-btn-blue {
+    @apply border-none bg-ColorBlack/5 text-ColorBlack/60 hover:bg-ColorBlue hover:text-white;
+  }
+
+  .tab-btn-blue.active {
+    @apply border-none bg-ColorBlue text-white;
+  }
+
+  .is-white {
+    @apply border-ColorBlack bg-white text-ColorBlack hover:bg-ColorBlack hover:text-white;
+  }
+  .is-dark {
+    @apply border-ColorDark bg-ColorDark  text-white;
+  }
+  .is-rounded {
+    @apply rounded-[50px];
+  }
+}
+
+@keyframes fill-up-initial {
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -105%, 0) scale3d(1, 2, 1);
+  }
+}
+
+@keyframes fill-up-end {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0) scale3d(1, 2, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Main Wrapper */
+.main-wrapper {
+  @apply overflow-hidden;
+}
+
+.container-default {
+  @apply mx-auto max-w-[1400px] px-4 sm:px-8 md:px-10 lg:px-8 xl:px-10 xxl:px-[50px];
+}
+
+.container-custom {
+  @apply mx-auto max-w-[1400px] px-4 sm:px-8 md:px-[100px] lg:px-8 xl:px-10 xxl:px-[50px];
+}
+
+.has-container-custom {
+  @apply flex flex-col justify-center text-center lg:justify-normal lg:text-left;
+}
+
+/* Section Space */
+.section-space {
+  @apply py-20 lg:py-[100px] xl:py-[120px];
+}
+.section-space-bottom {
+  @apply pb-20 lg:pb-[100px] xl:pb-[120px];
+}
+
+/* Horizontal Line Separator */
+.horizontal-line {
+  @apply mx-auto h-[1px] w-full max-w-[1300px] opacity-10;
+}
+
+/* Breadcrumb */
+.breadcrumb-wrapper {
+  @apply relative z-10 bg-ColorOffWhite pb-[50px] pt-[105px] lg:pb-[70px] lg:pt-[135px] xl:pb-[120px] xl:pt-[165px];
+}
+
+.breadcrumb-block {
+  @apply flex flex-col justify-center text-center;
+}
+
+.breadcrumb-title {
+  @apply mx-auto mb-6 max-w-[500px] text-4xl font-extrabold leading-[1.2] -tracking-[1px] sm:text-5xl md:text-6xl lg:mb-10 lg:max-w-[768px] xl:max-w-[1076px] xl:text-[70px];
+}
+
+.breadcrumb-nav {
+  @apply flex flex-wrap items-center justify-center gap-x-11;
+}
+
+.breadcrumb-nav li {
+  @apply relative text-black after:absolute after:-right-8 after:top-1/2 after:h-5 after:w-5 after:-translate-y-1/2 after:bg-[url(../img/icons/icon-black-chevron-right-solid.svg)] after:bg-cover last:font-semibold last:text-ColorBlue last:after:bg-none;
+}
+
+.breadcrumb-nav a {
+  @apply font-semibold transition-all duration-300 hover:text-ColorBlue;
+}
+
+/* Accordion */
+
+.accordion-body {
+  @apply h-0 translate-y-5 overflow-clip opacity-0 transition-all duration-500;
+}
+
+.accordion-item.active .accordion-body {
+  @apply h-auto translate-y-0 opacity-100;
+}
+
+/* Accordion 1 */
+.accordion-item.active .accordion-icon-1 span:last-child {
+  @apply -rotate-90 opacity-0 transition-all duration-500;
+}
+
+.accordion-solid-shadow {
+  @apply relative z-10 after:absolute after:inset-0 after:-z-10 after:translate-x-0 after:translate-y-0 after:rounded-[10px] after:bg-ColorBlack after:transition-all after:duration-300;
+}
+
+.accordion-solid-shadow.active {
+  @apply after:translate-x-[10px] after:translate-y-[10px];
+}
+
+/* According - 2 */
+.accordion-item.active .accordion-icon-2 {
+  @apply rotate-180 transition-all duration-300;
+}
+
+.accordion-item.active:has(.accordion-icon-2) {
+  @apply bg-white first:rounded-tl-[10px] first:rounded-tr-[10px] last:rounded-bl-[10px] last:rounded-br-[10px];
+}
+
+/* According - 3 */
+.accordion-item.active .accordion-icon-3 {
+  @apply rotate-45 transition-all duration-300;
+}
+
+/* According - 4 */
+.accordion-item.active .accordion-icon-4 {
+  @apply rotate-180 transition-all duration-300;
+}
+
+/* According - 5 */
+.accordion-item .accordion-icon-5  {
+  @apply bg-transparent transition-all duration-300;
+ }
+ 
+ /* Accordion 6 */
+ .accordion-item .accordion-icon-6 span {
+  @apply first:bg-black;
+}
+.accordion-item.active .accordion-icon-6 span {
+  @apply first:bg-[#0000FF];
+}
+
+.accordion-item.active .accordion-icon-6 span:last-child {
+  @apply -rotate-90 opacity-0 transition-all duration-500;
+}
+
+.accordion-item.active .accordion-icon-5  {
+  @apply bg-ColorMidnightMoss text-ColorCaribbeanGreen rotate-45;
+ }
+
+.accordion-item.active:has(.accordion-icon-4) {
+  @apply first:rounded-tl-[10px] first:rounded-tr-[10px] last:rounded-bl-[10px] last:rounded-br-[10px];
+}
+
+.accordion-item.active:has(.accordion-icon-5)  {
+  @apply bg-[#FFFCEF];
+ }
+
+.rich-text h5 {
+  @apply mb-4;
+}
+
+/* Tab */
+.tab-text.active {
+  @apply text-ColorBlue;
+}
+
+.process-tab {
+  @apply flex items-center justify-center gap-[10px] rounded-[50px] px-6 py-3 font-bold text-white;
+}
+
+.process-tab.active {
+  @apply bg-ColorCorn text-ColorLunarGreen;
+}
+
+.process-tab img {
+  @apply first:opacity-100 last:opacity-0;
+}
+
+.process-tab.active img {
+  @apply first:opacity-0 last:opacity-100;
+}
+
+/* Hover Effects */
+.hover-solid-shadow {
+  @apply relative z-10 after:absolute after:inset-0 after:-z-10 after:rounded-[10px] after:bg-ColorBlack after:transition-all after:duration-300 hover:after:translate-x-[10px] hover:after:translate-y-[10px];
+}
+
+/* Testimonial Slider */
+.testimonial-slider-area-1 .swiper-pagination-bullet {
+  @apply !mx-[6px] h-[10px] w-[10px] bg-ColorDark/80;
+}
+.testimonial-slider-area-1 .swiper-pagination-bullet-active {
+  @apply h-[10px] w-[10px] bg-ColorDark;
+}

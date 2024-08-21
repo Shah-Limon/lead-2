@@ -1,0 +1,44 @@
+/* .dashboard-card{
+    padding: 30px;
+
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.find input{
+    font-size: 20px !important;
+    border-radius: 10px !important;
+    border: 1px solid blue !important;
+    
+}
+td p{
+    font-weight: 400 !important; 
+    font-size: 14px !important;
+}
+ */
+/* Ensure the table container is responsive */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Optional: You might want to adjust padding and margins for better mobile view */
+.table {
+  margin: 0;
+  padding: 0;
+}
+
+.table th,
+.table td {
+  white-space: nowrap; /* Prevents text from wrapping, helps with scroll */
+}
+
+.table-dark th,
+.table-dark td {
+  padding: 0.75rem; /* Adjust padding as needed */
+}
+
+/* Optional: Style for table on smaller screens */
+@media (max-width: 768px) {
+  .table-responsive {
+    margin-bottom: 1rem;
+  }
+}

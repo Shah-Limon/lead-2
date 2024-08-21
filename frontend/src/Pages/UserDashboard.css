@@ -1,0 +1,110 @@
+/* UserDashboard.css */
+
+/* Common styles */
+.dashboard {
+  display: flex;
+}
+
+.dashboard-card{
+  padding: 30px;
+
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  background-color: #fff; /* Change background color to white */
+  padding-top: 20px;
+  border-right: 1px solid #ddd; /* Adding a border for better separation */
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar h2 {
+  color: #333; /* Change text color to a darker shade */
+  padding-left: 20px;
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #333; /* Change link color to a darker shade */
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #555; /* Change hover color to a slightly darker shade */
+}
+
+/* Collapsed sidebar styles */
+.dashboard.sidebar-open .sidebar {
+  transform: translateX(-250px);
+}
+
+.sidebar-toggle {
+  display: block;
+  margin: 10px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.content h2 {
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Media query for responsive behavior */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+
+  .dashboard.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+}
+
+.btn_lead {
+  display: inline-block;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 30px;
+  padding: 0 10px;
+  color: #fff;
+}
+
+.btn_color_main {
+  background-color: #5889fb;
+}
+
+.btn_color_sub {
+  background-color: #6844ed;
+}
+.lead_list td {
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 30px;
+  padding: 0 10px;
+}
+.lead_list p {
+  margin: 0 0 0px;
+}
+
+
+
