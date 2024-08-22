@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
@@ -7,6 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"; // Import axios for API calls
 import auth from "../firebase.init";
 import Loading from "../components/Shared/Loading";
 
@@ -28,18 +28,53 @@ const SignUp = () => {
   let signInError;
 
   const onSubmit = async (data) => {
-    await createUserWithEmailAndPassword(data.email, data.password);
-    await updateProfile({ displayName: data.name });
-    console.log("Update done");
+    try {
+      // Create user with email and password
+      const userCredential = await createUserWithEmailAndPassword(data.email, data.password);
+
+      if (userCredential.user) {
+        // User created successfully
+        // Update profile with display name
+        await updateProfile({ displayName: data.name });
+
+        // Default image URL
+        const defaultImgUrl = "https://firebasestorage.googleapis.com/v0/b/mobile-app-d6c0d.appspot.com/o/images%2Fpng-clipart-user-profile-computer-icons-girl-customer-avatar-angle-heroes-thumbnail.png?alt=media&token=277b1fbd-04d1-4c8a-a749-f4c3d6c6d282";
+
+        // Prepare the user data to send to the database
+        const userUpdate = {
+          userName: data.name,
+          userEmail: data.email,
+          profileStatus: "Approved",
+          userPoint: 100,
+          profileImg: defaultImgUrl,
+        };
+
+        // Send the user data to the database
+        const url = `http://localhost:5000/add-profile-info`;
+        await axios.post(url, userUpdate, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        // Navigate to the user dashboard
+        navigate("/user-dashboard");
+        window.location.href = "/user-dashboard";
+      } else {
+        throw new Error("User creation failed");
+      }
+    } catch (error) {
+      console.error("Error during signup or data submission:", error);
+      // Handle the error, e.g., show a message to the user
+    }
   };
 
   // Navigate after successful registration
   useEffect(() => {
     if (user || gUser) {
-      navigate("/");
+      navigate("/user-dashboard");
     }
   }, [user, gUser, navigate]);
-
   // Function to get custom error messages
   const getErrorMessage = (errorCode) => {
     switch (errorCode) {

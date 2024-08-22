@@ -131,6 +131,25 @@ async function run() {
       );
       res.send(result);
     });
+    app.put("/update-profile/:id", async (req, res) => {
+      const id = req.params.id;
+      const edit = req.body;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          userName: edit.userName,
+          profileImg: edit.profileImg,
+        },
+      };
+
+      const result = await userProfileCollections.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
 
 
 

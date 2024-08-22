@@ -89,12 +89,64 @@ const NavBar = () => {
 
             {user ? (
               <>
-                <Link
-                  to="/user-dashboard"
-                  className="btn-masco btn-masco--header rounded-pill btn-fill--up"
-                >
-                  <span>Dashboard</span>
-                </Link>
+                {profile.map(pro => pro.userEmail === user?.email && (
+                  <div className="nav-item dropdown mt-3 me-3">
+                    <a
+                      className="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <img
+                        src={pro.profileImg || "https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"}
+                        alt="Profile"
+                        className="rounded-circle me-2"
+                        style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+                      />
+                    </a>
+                    <ul className="dropdown-menu dropdown-menu-end p-3">
+                      <li>
+                        <Link className="dropdown-item" to="/user-dashboard">
+                          <i class="fa-solid fa-bars text-primary"></i>{" "}
+                          Dashboard
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="dropdown-item" to="/pending-payment/">
+                          <i class="fa-solid fa-bars text-primary"></i>{" "}
+                          Pending Payment
+                        </Link>
+                      </li>
+                      <li>
+                        <hr className="dropdown-divider" />
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-user text-primary"></i>{" "}{pro.userName}
+
+                      </li>
+                      <li>
+
+                        {pro.userEmail}
+                      </li>
+                      <Link to={`/update-profile/${pro._id}`} className="btn btn-sm btn-primary position-relative mt-2 mb-2">
+                        Edit Profile
+                        <span className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+
+                        </span>
+                      </Link>
+                      <li>
+                        <hr className="dropdown-divider" />
+                      </li>
+                      <li>
+                        <button className="dropdown-item" onClick={handleSignout}>
+                          <i class="fa-solid fa-right-from-bracket text-primary"></i>
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                ))}
 
 
                 {isAdmin && (
@@ -116,99 +168,8 @@ const NavBar = () => {
             )}
 
 
-            {/* {profile.map(pro => pro.userEmail === user?.email && (
-              <Link className="nav-item dropdown mt-3 me-3">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img
-                    src={pro.profileImg || "https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"}
-                    alt="Profile"
-                    className="rounded-circle ms-3" // Added margin-left class
-                    width="40"
-                    height="40"
-                  />
-                </a>
-                <ul className="dropdown-menu dropdown-menu-end p-0 m-0">
-                  <li>
-                    <Link className="dropdown-item" to="/user-dashboard">
-                      Dashboard
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    {pro.userName}
-                  </li>
-                  <li>
-                    {pro.userEmail}
-                  </li>
-                  <li>
-                    <button className="dropdown-item" onClick={handleSignout}>
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </Link>
-            ))} */}
 
-            {profile.map(pro => pro.userEmail === user?.email && (
-              <div className="nav-item dropdown mt-3 me-3">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img
-                    src={pro.profileImg || "https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"}
-                    alt="Profile"
-                    className="rounded-circle me-2"
-                    width="40"
-                    height="40"
-                  />
-                </a>
-                <ul className="dropdown-menu dropdown-menu-end p-3">
-                  <li>
-                    <Link className="dropdown-item" to="/user-dashboard">
-                      <i class="fa-solid fa-bars text-primary"></i>{" "}
-                      Dashboard
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/pending-payment/">
-                      <i class="fa-solid fa-bars text-primary"></i>{" "}
-                      Pending Payment
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-user text-primary"></i>{" "}{pro.userName}
-                  </li>
-                  <li>
 
-                    {pro.userEmail}
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <button className="dropdown-item" onClick={handleSignout}>
-                      <i class="fa-solid fa-right-from-bracket text-primary"></i>
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            ))}
 
 
 

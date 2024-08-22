@@ -118,6 +118,7 @@ function App() {
             <Route path='/reset' element={<ResetPassword></ResetPassword>}></Route>
             <Route path='/update-password' element={<UpdatePassword></UpdatePassword>}></Route>
             <Route path='/update-profile' element={<RequireAuth><UpdateProfile></UpdateProfile></RequireAuth>}></Route>
+            <Route path='/update-profile/:id' element={<RequireAuth><UpdateProfile></UpdateProfile></RequireAuth>}></Route>
        
 
             <Route path='/about-us' element={<AboutPage></AboutPage>}></Route>

@@ -43,11 +43,11 @@ const UserDashboard = () => {
   let rowNumber = 1;
 
   return (
-    <div className={`dashboard section-space ${sidebarOpen ? "sidebar-open" : ""}`}>
+    <div>
       {/* <DashboardSidebar></DashboardSidebar> */}
-      <div className="content">
-        <div class="horizontal-line bg-ColorBlack mb-[10px]"></div>
-        <h2 className="text-center">Dashboard</h2>
+      <div>
+        <div class="horizontal-line bg-ColorBlack"></div>
+        <h2 className="text-center mb-3">Dashboard</h2>
         {profile.filter((pro) => pro.userEmail === user?.email).length === 1 && (
           <>
             <div className="container">
@@ -80,7 +80,7 @@ const UserDashboard = () => {
                 </div>
 
                 <div
-                  className="col-lg-3 col-md-6 aos-init aos-animate padding-bottom-100"
+                  className="col-lg-3 col-md-6 aos-init aos-animate"
                 >
                   <div className="feature-card" style={{
                     height: '150px',
@@ -170,7 +170,7 @@ const UserDashboard = () => {
               </div>
             </div>
 
-            <div className="card m-5 d-flex justify-content-center align-items-center">
+            <div className="card mb-5 mt-5 d-flex justify-content-center align-items-center">
               <section className="gradient-custom p-4 w-100">
                 <div className="container">
                   <div className="row d-flex justify-content-center align-items-center">
