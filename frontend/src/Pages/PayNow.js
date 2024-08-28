@@ -22,9 +22,9 @@ const PayNow = () => {
   }, []);
 
   return (
-    <section className="banner">
+    <section className="banner vh-100">
       <div className="container">
-        <div className="row vh-100 align-items-center">
+        <div className="row align-items-center justify-content-center mb-5">
           <div className="col-md-8 mx-auto text-center">
             <div className="card p-4 shadow-sm border-0" style={{ backgroundColor: 'rgb(250, 249, 245)' }}>
               <h6 className="text-muted mb-4">Pay Now</h6>
@@ -56,8 +56,8 @@ const PayNow = () => {
                 <input
                   type="hidden"
                   name="cancel_return"
-                  value={`${currentDomain}/received-payment/${order._id}/${order.paymentId}`}
-                  // value={`${currentDomain}/cancelled-payment/${order._id}`}
+                  // value={`${currentDomain}/received-payment/${order._id}/${order.paymentId}`}
+                  value={`${currentDomain}/cancelled-payment/${order._id}`}
                 />
                 <input
                   type="hidden"
@@ -67,7 +67,7 @@ const PayNow = () => {
                 <input type="hidden" name="cmd" value="_xclick" />
                 <button
                   type="submit"
-                  className="btn btn-primary btn-lg mt-3"
+                  className="btn btn-primary btn-lg mb-5"
                 >
                   ${order.packagePrice} Pay Now With PayPal
                 </button>

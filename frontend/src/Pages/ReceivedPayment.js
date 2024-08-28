@@ -80,9 +80,9 @@ const ReceivedPayment = () => {
   };
 
   return (
-    <section className="py-5">
+    <section className="py-5 vh-100">
       <div className="container">
-        <div className="row vh-100 justify-content-center align-items-center">
+        <div className="row justify-content-center align-items-center">
           <div className="col-lg-8">
             <div className="card p-4 shadow-sm border-0" style={{ backgroundColor: 'rgb(250, 249, 245)' }}>
               <h2 className="text-center mb-4">Payment Confirmation</h2>

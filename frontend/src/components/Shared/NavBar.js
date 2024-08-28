@@ -117,6 +117,10 @@ const NavBar = () => {
                           <i class="fa-solid fa-bars text-primary"></i>{" "}
                           Pending Payment
                         </Link>
+                        <Link className="dropdown-item" to="/user-dashboard/my-orders/">
+                          <i class="fa-solid fa-bars text-primary"></i>{" "}
+                         My Orders
+                        </Link>
                       </li>
                       <li>
                         <hr className="dropdown-divider" />

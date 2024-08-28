@@ -464,7 +464,7 @@ const LeadsForUserDashboard = () => {
 
                                     {profile.map(
                                       (e) =>
-                                        e.userPoint < lead.credit &&
+                                        e.userPoint <= lead.credit &&
                                         e.userEmail === user?.email && (
                                           <Link
                                             to="/deposit"
