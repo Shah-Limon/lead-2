@@ -101,13 +101,15 @@ import MyLeadsinMyList from './Pages/MyLeadsinMyList';
 import FindLeads from './Pages/FindLeads';
 import { ToastContainer } from 'react-toastify';
 import PricePage from './Pages/PricePage';
+import GenerateEmailTemplate from './Pages/Admin/GenerateEmailTemplate/GenerateEmailTemplate';
+import UserEmailTemplate from './Pages/Admin/GenerateEmailTemplate/UserEmailTemplate';
 
 
 function App() {
   return (
     <body>
       <div>
-      <ToastContainer />
+        <ToastContainer />
         <NavBar></NavBar>
         <div>
           <Routes>
@@ -119,7 +121,7 @@ function App() {
             <Route path='/update-password' element={<UpdatePassword></UpdatePassword>}></Route>
             <Route path='/update-profile' element={<RequireAuth><UpdateProfile></UpdateProfile></RequireAuth>}></Route>
             <Route path='/update-profile/:id' element={<RequireAuth><UpdateProfile></UpdateProfile></RequireAuth>}></Route>
-       
+
 
             <Route path='/about-us' element={<AboutPage></AboutPage>}></Route>
             <Route path='/contact' element={<ContactPage></ContactPage>}></Route>
@@ -128,19 +130,20 @@ function App() {
             <Route path='/deposit' element={<Pricing></Pricing>}></Route>
             <Route path='/privacy-policy' element={<PrivacyPage></PrivacyPage>}></Route>
             <Route path='/terms-condition' element={<TermsPage></TermsPage>}></Route>
-       
+
             <Route path='/user-dashboard' element={<RequireAuth><UserDashboard></UserDashboard></RequireAuth>}></Route>
+            <Route path='/user/generate-email-template' element={<RequireAuth><UserEmailTemplate></UserEmailTemplate></RequireAuth>}></Route>
             <Route path='/find-leads' element={<RequireAuth><FindLeads></FindLeads></RequireAuth>}></Route>
             <Route path='/my-leads' element={<RequireAuth><MyAllLeads></MyAllLeads></RequireAuth>}></Route>
             <Route path='/add-lead/:id' element={<RequireAuth><AddLeadsToMyList></AddLeadsToMyList></RequireAuth>}></Route>
             <Route path='/create-list' element={<RequireAuth><CreateList></CreateList></RequireAuth>}></Route>
             <Route path='/edit-list/:id' element={<RequireAuth><EditList></EditList></RequireAuth>}></Route>
             <Route path='/list/:id' element={<RequireAuth><MyLeadsinMyList></MyLeadsinMyList></RequireAuth>}></Route>
-           
+
             <Route path='/user-dashboard/my-orders/' element={<RequireAuth><MyOrders></MyOrders></RequireAuth>}></Route>
 
 
-      
+
 
             <Route path='/package/:id' element={<RequireAuth><Package></Package></RequireAuth>}></Route>
             <Route path='/package-title-edit/:id' element={<RequireAuth><PackageTitleEdit></PackageTitleEdit></RequireAuth>}></Route>
@@ -149,9 +152,10 @@ function App() {
             <Route path='/cancelled-payment/:id' element={<RequireAuth><CancelledPayment></CancelledPayment></RequireAuth>}></Route>
             <Route path="/received-payment/:id/:paymentId" element={<RequireAuth><ReceivedPayment /></RequireAuth>} />
 
-            
+
             <Route path='/admin/dashboard' element={<RequireAuth><ManagerRoute><Dashboard></Dashboard></ManagerRoute></RequireAuth>}></Route>
-            
+            <Route path='/admin/generate-email-template/' element={<RequireAuth><ManagerRoute><GenerateEmailTemplate></GenerateEmailTemplate></ManagerRoute></RequireAuth>}></Route>
+
             <Route path='/admin/setting' element={<RequireAuth><AdminRoute><Setting></Setting></AdminRoute></RequireAuth>}></Route>
             <Route path='/admin/manage-users/' element={<RequireAuth><AdminRoute><ManageUsers></ManageUsers></AdminRoute></RequireAuth>}></Route>
             <Route path='/admin/user/:id' element={<RequireAuth><AdminRoute><User></User></AdminRoute></RequireAuth>}></Route>
@@ -159,7 +163,7 @@ function App() {
             <Route path='/admin/update-logo/:id' element={<RequireAuth><AdminRoute><UpdateLogo></UpdateLogo></AdminRoute></RequireAuth>}></Route>
             <Route path='/admin/setting-homepage' element={<RequireAuth><AdminRoute><HomaPageSetting></HomaPageSetting></AdminRoute></RequireAuth>}></Route>
             <Route path='/admin/edit-banner-option/:id' element={<RequireAuth><AdminRoute><EditBanner></EditBanner></AdminRoute></RequireAuth>}></Route>
-            
+
             <Route path='/admin/about-service-list/' element={<RequireAuth><AdminRoute><AboutList></AboutList></AdminRoute></RequireAuth>}></Route>
             <Route path='/admin/edit-about-service/:id' element={<RequireAuth><AdminRoute><EditAboutList></EditAboutList></AdminRoute></RequireAuth>}></Route>
             <Route path='/admin/feature-page/' element={<RequireAuth><AdminRoute><EditFeaturesPage></EditFeaturesPage></AdminRoute></RequireAuth>}></Route>

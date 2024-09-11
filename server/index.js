@@ -47,10 +47,12 @@ async function run() {
   try {
     await client.connect();
     /* Seo site collection */
+    const generateEmailTemplateCollections = client.db("seoWebsite").collection("generateEmailTemplate");
+
+
+
     const packageCollections = client.db("seoWebsite").collection("packages");
     const packageTitleCollections = client.db("seoWebsite").collection("packagesTitle");
-
-
     const featurePageCollections = client.db("seoWebsite").collection("features");
     const FaqsOptionCollections = client.db("seoWebsite").collection("faqs");
     const FaqsTitleCollections = client.db("seoWebsite").collection("faqsTitle");
@@ -85,7 +87,68 @@ async function run() {
 
 
 
+    /* generateEmailTemplateCollections */
 
+    app.post("/add-generate-email-template", async (req, res) => {
+      const { generateEmailTemplate } = req.body;
+
+      if (!generateEmailTemplate) {
+        return res.status(400).send({ error: "No template data provided" });
+      }
+
+      try {
+        const result = await generateEmailTemplateCollections.insertOne({ htmlCode: generateEmailTemplate });
+
+        if (result.insertedCount === 1) {
+          res.status(201).send({ message: "Template saved successfully", id: result.insertedId });
+        } else {
+          res.status(500).send({ error: "Failed to save template" });
+        }
+      } catch (error) {
+        console.error("Error saving template:", error);
+        res.status(500).send({ error: "Failed to save template" });
+      }
+    });
+
+    app.get("/generate-email-templates", async (req, res) => {
+      const query = {};
+      const cursor = generateEmailTemplateCollections.find(query);
+      const leads = await cursor.toArray();
+      res.send(leads);
+    });
+
+    app.get("/generate-email-template/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const website = await generateEmailTemplateCollections.findOne(query);
+      res.send(website);
+    });
+
+    // Update an email template
+    app.post("/edit-generate-email-template/:id", async (req, res) => {
+      const id = req.params.id;
+      const { generateEmailTemplate } = req.body;
+
+      if (!generateEmailTemplate) {
+        return res.status(400).send({ error: "No template data provided" });
+      }
+
+      try {
+        const result = await generateEmailTemplateCollections.updateOne(
+          { _id: new ObjectId(id) },
+          { $set: { htmlCode: generateEmailTemplate } }
+        );
+
+        if (result.modifiedCount > 0) {
+          res.status(200).send({ message: "Template updated successfully" });
+        } else {
+          res.status(404).send({ error: "Template not found" });
+        }
+      } catch (error) {
+        console.error("Error updating template:", error);
+        res.status(500).send({ error: "Failed to update template" });
+      }
+    });
 
 
 

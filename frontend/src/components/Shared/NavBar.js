@@ -83,6 +83,7 @@ const NavBar = () => {
                       Contact us
                     </Link>
                   </li>
+                  
                 </ul>
               </nav>
             </div>
@@ -174,14 +175,8 @@ const NavBar = () => {
 
 
 
-
-
-
-
-
-
-
             <div className="mobile-menu-trigger">
+              
               <span />
             </div>
 

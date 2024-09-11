@@ -167,6 +167,37 @@ const UserDashboard = () => {
 
                   </div>
                 </div>
+                <div
+                  className="col-lg-3 col-md-6 aos-init aos-animate"
+                >
+                  <div className="feature-card" style={{
+                    height: '150px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                  }}>
+                    <div className="feature-card__icon">
+                      <img
+                        src="https://firebasestorage.googleapis.com/v0/b/mobile-app-d6c0d.appspot.com/o/images%2FHeader-Email-Templates.svg?alt=media&token=b519f865-5224-402c-bd4d-43375d0c98f6"
+                        alt="images alt"
+                        width={60}
+                        height={30}
+                      />
+                    </div>
+                    <Link to="/user/generate-email-template">
+                      <div className="feature-card__body">
+                        <h3 className="feature-card__title">
+                          Email Template
+                        </h3>
+                        <p>
+                        Copy and Share Instantly
+                        </p>
+                      </div>
+                    </Link>
+
+
+                  </div>
+                </div>
               </div>
             </div>
 

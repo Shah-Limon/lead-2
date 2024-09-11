@@ -40,7 +40,7 @@ const DashboardMenu = () => {
 
             <div
               className="col-lg-3 col-md-6 aos-init aos-animate"
-            
+
             >
               <div className="service-card-2">
                 <div className="service-card-2__icon">
@@ -55,7 +55,7 @@ const DashboardMenu = () => {
             </div>
             <div
               className="col-lg-3 col-md-6 aos-init aos-animate"
-             
+
             >
               <div className="service-card-2">
                 <div className="service-card-2__icon">
@@ -72,7 +72,7 @@ const DashboardMenu = () => {
             </div>
             <div
               className="col-lg-3 col-md-6 aos-init aos-animate"
-             
+
             >
               <div className="service-card-2">
                 <div className="service-card-2__icon">
@@ -89,7 +89,7 @@ const DashboardMenu = () => {
             </div>
             <div
               className="col-lg-3 col-md-6 aos-init aos-animate"
-             
+
             >
               <div className="service-card-2">
                 <div className="service-card-2__icon">
@@ -106,7 +106,7 @@ const DashboardMenu = () => {
             </div>
             <div
               className="col-lg-3 col-md-6 aos-init aos-animate"
-             
+
             >
               <div className="service-card-2">
                 <div className="service-card-2__icon">
@@ -121,10 +121,7 @@ const DashboardMenu = () => {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-3 col-md-6 aos-init aos-animate"
-             
-            >
+            <div className="col-lg-3 col-md-6 aos-init aos-animate"  >
               <div className="service-card-2">
                 <div className="service-card-2__icon">
                   <img src="https://firebasestorage.googleapis.com/v0/b/mobile-app-d6c0d.appspot.com/o/images%2F5003738.png?alt=media&token=0884637f-8807-4422-a0fa-dd4ef2d2dda6" width={75} height={75} alt="profiles" />
@@ -138,9 +135,23 @@ const DashboardMenu = () => {
                 </div>
               </div>
             </div>
+            <div className="col-lg-3 col-md-6 aos-init aos-animate"  >
+              <div className="service-card-2">
+                <div className="service-card-2__icon">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/mobile-app-d6c0d.appspot.com/o/images%2FHeader-Email-Templates.svg?alt=media&token=b519f865-5224-402c-bd4d-43375d0c98f6" width={120} height={105} alt="profiles" />
+                </div>
+                <div className="service-card-2__body">
+                  <h3 className="service-card-2__title">
+                    <Link to="/admin/generate-email-template/">
+                      Generate Email Template
+                    </Link>
+                  </h3>
+                </div>
+              </div>
+            </div>
 
           </div>
-          
+
         </div>
       </section>
     </>
